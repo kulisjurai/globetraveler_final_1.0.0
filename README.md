@@ -1,4 +1,4 @@
-# globetravler_final_1.0.0
+# globetraveler_final_1.0.0
 Final exam application for IT Academy program Javascript Frontend development 2021. Subject of the work is traveling and booking agency.
 
 ## Node version
