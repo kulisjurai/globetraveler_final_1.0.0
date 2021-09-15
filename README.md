@@ -3,7 +3,7 @@ Final exam application for IT Academy program Javascript Frontend development 20
 
 ## Node version
 
-**.nvmrc** file can be found in the **api** folder with the version of node required for the project.
+````npm .nvmrc**```` file can be found in the ````npm api```` folder with the version of node required for the project.
 
 ## Data base
 
