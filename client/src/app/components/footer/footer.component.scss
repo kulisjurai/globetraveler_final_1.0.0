@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    width: 100%;
+    background-color: rgb(36, 54, 88) !important;
+    z-index: 15;
+    color: #1dbbeb !important;
+    a {
+        text-decoration: none;
+        &:hover {
+            color: aliceblue !important;
+        }
+    }
+}
+
+.none {
+    display: none;
+}

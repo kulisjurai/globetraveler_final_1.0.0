@@ -1,0 +1,145 @@
+<div style="
+    padding: 22px 25px 22px 25px;
+    width: 86vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  ">
+    <h4 style="font-family: 'Nunito'; margin-top: 10px">Korisnici</h4>
+    <br />
+    <div style="width: 100%">
+        <h6>
+            Ukupno:
+            <span class="badge bg-primary" style="
+          margin-left: 10px;
+          text-align: center;
+          padding-left: 15px;
+          padding-right: 15px;
+        ">{{ numberOfUsers }}</span
+      >
+    </h6>
+  </div>
+  <br />
+  <br />
+  <table
+    class="table table-striped m-25 dest-table"
+    style="font-family: 'Nunito'"
+  >
+    <thead>
+      <tr>
+        <th scope="col ">#</th>
+        <th colspan="3 " scope="col ">Ime</th>
+        <th colspan="3 " scope="col ">Prezime</th>
+        <th scope="col ">Username</th>
+        <th colspan="3 " scope="col ">Email</th>
+        <th colspan="2 " scope="col ">Adresa</th>
+        <th colspan="2 " scope="col ">Role</th>
+        <th scope="col ">Status</th>
+        <th colspan="4" style="padding-left: 50px" scope="col ">
+          &nbsp;&nbsp;Action
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of allUsers">
+        <th scope="row ">{{ user.user_id }}</th>
+        <td colspan="3 ">{{ user.first_name }}</td>
+        <td colspan="3 ">{{ user.last_name }}</td>
+        <td>{{ user.username }}</td>
+        <td colspan="2 ">{{ user.email }}</td>
+        <td colspan="3 ">{{ user.address }}</td>
+
+        <td colspan="2 ">
+          <strong>{{ user.role_name }}</strong>
+        </td>
+        <td>{{ user.is_active }}</td>
+        <td>
+          <div style="display: flex; justify-content: flex-end">
+            <button
+              type="button "
+              class="btn btn-primary"
+              (click)="updateUser(user)"
+            >
+              <i class="fas fa-pen"></i>&nbsp;Uredi
+            </button>
+            <button
+              type="button"
+              style="margin-left: 15px"
+              class="btn btn-danger"
+              (click)="deleteUser(user)"
+            >
+              <i class="fas fa-trash"></i>&nbsp;Obriši
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="containerr" *ngIf="editMode">
+  <div
+    style="
+      border: 1px solid rgb(223, 170, 57);
+      padding: 25px;
+      border-radius: 8px;
+      background-color: rgb(255, 255, 255);
+    "
+  >
+    <table class="table table-striped m-25 dest-table">
+      <thead>
+        <tr>
+          <th scope="col ">#</th>
+          <th colspan="2 " scope="col ">Ime</th>
+          <th colspan="2 " scope="col ">Prezime</th>
+          <th scope="col ">Username</th>
+          <th colspan="2 " scope="col ">Email</th>
+          <th colspan="2 " scope="col ">Adresa</th>
+          <th colspan="2 " scope="col ">Role</th>
+          <th scope="col ">Status</th>
+          <th colspan="4 " scope="col ">&nbsp;&nbsp;Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row ">{{ userInstance.user_id }}</th>
+          <td colspan="2 ">{{ userInstance.first_name }}</td>
+          <td colspan="2 ">{{ userInstance.last_name }}</td>
+          <td>{{ userInstance.username }}</td>
+          <td colspan="2 ">{{ userInstance.email }}</td>
+          <td colspan="2 ">{{ userInstance.address }}</td>
+
+          <td colspan="2 ">
+            <div class="input-group" style="height: 38px">
+              <select
+                [(ngModel)]="userInstance.uloga_id"
+                (change)="registerChange($event)"
+                class="form-select form-select-sm"
+                aria-label=".form-select-sm example "
+                name="roleType "
+              >
+                <option
+                  selected
+                  *ngFor="let role of roleTypes"
+                  [value]="role.role_id"
+                >
+                  {{ role.role_name }}
+                </option>
+              </select>
+            </div>
+          </td>
+          <td>{{ userInstance.is_active }}</td>
+          <td>
+            <button
+              type="button "
+              class="btn btn-success"
+              (click)="saveUserChange()"
+            >
+              <i class="fas fa-save"></i>&nbsp;Spremi
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

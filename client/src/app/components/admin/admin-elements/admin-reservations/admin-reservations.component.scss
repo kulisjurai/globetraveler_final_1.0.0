@@ -1,0 +1,26 @@
+.back-canceled {
+    background-color: rgba($color: #171529, $alpha: 0.5);
+}
+
+.wider {
+    width: 200px;
+}
+
+.btn {
+    width: 100px !important;
+}
+
+.wrapper {
+    width: 82vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 0 30px;
+}
+
+.checked {
+    background-color: rgba($color: #46c05069, $alpha: 0.5);
+}
+
+.res-table {}

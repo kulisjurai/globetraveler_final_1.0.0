@@ -1,0 +1,217 @@
+.search-btn {
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-right-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    background-color: rgb(60, 160, 218);
+    border: 2px solid rgb(60, 160, 218);
+    width: 60px;
+    height: 50px;
+    z-index: 0;
+    i {
+        color: aliceblue;
+        font-size: 20px;
+    }
+    &:hover {
+        i {
+            color: rgb(245, 163, 56);
+            transition: 1s;
+        }
+    }
+}
+
+.input-group {
+    margin-bottom: 100px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-control {
+    height: 50px;
+    border-bottom-left-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+    border: 2px solid rgb(60, 160, 218);
+    max-width: 55vw;
+    margin: 0, 0, 0 auto;
+}
+
+.containerr {
+    width: 100%;
+    margin: 0px;
+    background-color: rgb(36, 54, 88) !important;
+    position: absolute;
+    height: 160px;
+    animation: mymove78 0.8s normal forwards;
+    z-index: 2;
+    @keyframes mymove78 {
+        0% {
+            top: -80px;
+            z-index: -10;
+        }
+        100% {
+            top: 100px;
+        }
+    }
+    .fa-times {
+        position: absolute;
+        top: 20px;
+        right: 75px;
+        color: rgb(60, 160, 218);
+    }
+    .fa-times:hover {
+        color: rgb(255, 156, 27);
+        cursor: pointer;
+    }
+    input {
+        position: relative;
+        left: 0;
+    }
+}
+
+.none {
+    width: 100%;
+    margin: 0px;
+    background-color: rgb(36, 54, 88) !important;
+    position: absolute;
+    height: 160px;
+    animation: mymove77 0.8s normal forwards;
+    z-index: 2;
+    @keyframes mymove77 {
+        0% {
+            top: 80px;
+            z-index: 0;
+            height: 170px;
+        }
+        100% {
+            top: -100px;
+            z-index: 0;
+        }
+    }
+}
+
+h1 {
+    color: rgb(67, 67, 119);
+    text-align: center;
+}
+
+.home-main-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    min-height: 120vh;
+    width: 100%;
+    padding: 30px 2vw 10vh 2vw !important;
+}
+
+.card {
+    height: 440px;
+    max-width: 330px;
+    border-radius: 7px;
+    padding: 0 0 15px 1px;
+    border: none;
+    margin: 15px;
+    background: #faf9f9;
+    box-shadow: 5px 5px 15px #e6e4e4, -5px -5px 15px #f4f4f4;
+    img {
+        margin-right: 1px;
+        max-width: 329px !important;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+    }
+    .price {
+        position: absolute;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        z-index: 2;
+        top: 7vh;
+        right: 1px;
+        display: inline;
+        padding: 7px;
+        background-color: rgb(36, 54, 88) !important;
+        color: white;
+        span {
+            color: rgb(255, 115, 0);
+        }
+    }
+    .card-info {
+        padding: 15px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: rgb(36, 36, 75);
+    }
+    .card-header {
+        background: #faf9f9;
+        padding: 10px 15px 5px 15px;
+        color: rgb(57, 57, 112);
+    }
+    &:hover {
+        cursor: pointer;
+        box-shadow: 9px 9px 19px #8a8989, -9px -9px 19px #f4f4f4;
+        transition: 0.5s;
+        .card-header {
+            color: coral;
+        }
+        h6 {
+            color: coral;
+        }
+    }
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 9px 9px 19px #8a8989, -9px -9px 19px #f4f4f4;
+    transition: 0.5s;
+    .card-header {
+        color: coral;
+    }
+    h6 {
+        color: coral;
+    }
+}
+
+.side-filters {
+    width: 250px;
+    background: #ffffff;
+    border-right: 1px rgb(204, 202, 202) solid;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+    .main-wrapper {
+        flex-direction: column;
+        .home-main-container {
+            .card {
+                margin: auto;
+                margin-top: 22px;
+            }
+            .card:hover {
+                cursor: pointer;
+                box-shadow: 9px 9px 19px #8a8989, -9px -9px 19px #f4f4f4;
+                transition: 0.6s;
+            }
+        }
+        .side-filters {
+            display: none;
+            height: 200px;
+            width: 100%;
+            border-bottom: 1px rgb(204, 202, 202) solid;
+            .filter-div {
+                display: flex;
+            }
+        }
+    }
+}
+
+.state-div {
+    background-color: rgba($color: #ffffff9f, $alpha: 0.5);
+    padding: 5px 0px 0 0px;
+    color: #2626589f;
+    font-family: "Nunito";
+    display: flex;
+    flex-direction: column;
+}
+
+i:hover {
+    cursor: pointer;
+}

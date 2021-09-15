@@ -1,0 +1,457 @@
+<div class="containerr">
+    <div class="backdrop-shadow" *ngIf="backDrop">
+        <div class="d-flex modal2">
+            <div class="lcol2">
+                <div class="text">
+                    <h5 class="logo">globetraveler</h5>
+                    <p>Polazna tačka Vašeg savršenog putovanja...</p>
+                </div>
+            </div>
+
+            <div></div>
+            <div class="rcol2">
+                <div class="header2" style="text-align: center">
+                    <h5>Jeste li sigurni da želite otkazati rezervaciju?</h5>
+                </div>
+                <div class="buttons">
+                    <button (click)="backDrop = false" class="btn btn-danger" style="margin-right: 20px">
+            <i class="fas fa-ban"></i>
+            Odustani
+          </button>
+                    <button class="btn btn-primary" (click)="cancelReservation()">
+            <i class="fas fa-check"></i> Potvrdi
+          </button>
+                </div>
+                <p>
+                    U slučaju otkazivanja leta, na raspolaganju imate sljedeće opcije u skladu sa našim Općim uvjetima prijevoza, osim ako nije drugačije predviđeno Uredbom (EZ) br. 261/2004 („Uredba”) kojom se utvrđuju zajednička pravila odštete i pomoći putnicima u slučaju
+                    uskraćenog ukrcavanja i otkazivanja ili dugih kašnjenja letova
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="backdrop-shadow" *ngIf="checkInBackdrop">
+        <div class="d-flex modal2">
+            <div class="lcol2">
+                <div class="text">
+                    <h5 class="logo">globetraveler</h5>
+                    <p>let's light some fire and get the show on the road...</p>
+                </div>
+            </div>
+
+            <div></div>
+            <div class="rcol2">
+                <div class="header2" style="text-align: center">
+                    <h5>Jeste li sigurni da želite uraditi check-in rezervacije?</h5>
+                </div>
+                <div class="buttons">
+                    <button (click)="checkInBackdrop = false" class="btn btn-danger" style="margin-right: 20px">
+            <i class="fas fa-ban"></i>
+            Odustani
+          </button>
+                    <button class="btn btn-success" (click)="checkIn()">
+            <i class="fas fa-check"></i> Potvrdi
+          </button>
+                </div>
+                <p>
+                    U slučaju otkazivanja leta, na raspolaganju imate sljedeće opcije u skladu sa našim Općim uvjetima prijevoza, osim ako nije drugačije predviđeno Uredbom (EZ) br. 261/2004 („Uredba”) kojom se utvrđuju zajednička pravila odštete i pomoći putnicima u slučaju
+                    uskraćenog ukrcavanja i otkazivanja ili dugih kašnjenja letova
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper" *ngIf="!backDrop && !checkInBackdrop">
+        <div class="lcol" [class.backdrop-shadow]="backDrop">
+            <div class="avatar-div"><i class="fas fa-user-alt"></i></div>
+            <div class="text">
+                <h5 class="logo">globetraveler</h5>
+                <h5>User account</h5>
+                <p>Polazna tačka Vašeg savršenog putovanja..</p>
+            </div>
+        </div>
+        <div class="rcol" [class.backdrop-shadow]="backDrop" *ngIf="!editMode">
+            <div class="header">
+                <div class="d-flex justify-content-between">
+                    <h3>{{ user.first_name }}&nbsp;{{ user.last_name }}</h3>
+                    <button style="
+              width: 100px;
+              margin: 20px 0 0 0;
+              background-color: rgb(38, 95, 201) !important;
+            " class="btn btn-primary" (click)="toggleEditMode()">
+            Uredi
+          </button>
+                </div>
+                <div style="margin-bottom: 20px">
+                    <div>
+                        <h6>{{ user.email }}</h6>
+                        <h6>{{ user.telefon }}</h6>
+                    </div>
+                </div>
+
+                <div class="switcher">
+                    <div (click)="toggleInfo()" [class.marker2]="!infoActive" [class.right]="infoActive" class="marker first">
+                        Info
+                    </div>
+                    <div (click)="toggleInfo()" [class.marker2]="infoActive" [class.left]="!infoActive" class="marker second">
+                        Rezervacije
+                    </div>
+                </div>
+            </div>
+            <div class="info-div" *ngIf="infoActive">
+                <div class="name data">
+                    <h6>User ID</h6>
+                    <h6>{{ user.user_id }}</h6>
+                </div>
+                <div class="name data">
+                    <h6>Ime</h6>
+                    <h6>{{ user.first_name }}</h6>
+                </div>
+                <div class="name data">
+                    <h6>Prezime</h6>
+                    <h6>{{ user.last_name }}</h6>
+                </div>
+                <div class="name data">
+                    <h6>Username</h6>
+                    <h6>{{ user.username }}</h6>
+                </div>
+                <div class="name data">
+                    <h6>Email</h6>
+                    <h6>{{ user.email }}</h6>
+                </div>
+                <div class="name data">
+                    <h6>Adresa</h6>
+                    <h6>{{ user.address }}</h6>
+                </div>
+                <div class="name data">
+                    <h6>Broj telefona</h6>
+                    <h6>{{ user.telefon }}</h6>
+                </div>
+                <p class="declaration">
+                    Osobne podatke prikupljamo u svrhu poboljšanja kvalitete sadržaja, funkcionalnosti i ponude usluga na stranici kako bismo mogli udovoljiti vašim interesima i potrebama, te Vas upoznati o postojećim i novim sadržajima, funkcionalnostima i uslugama Globetraveler-a
+                    koji bi Vama mogli biti od interesa.
+                </p>
+            </div>
+            <div class="reservation-div" *ngIf="!infoActive && isWide">
+                <div class="d-flex justify-content-between" style="margin-bottom: 15px; border-bottom: rgb(38, 95, 201) 1px solid">
+                    <p>
+                        <b>Ukupno: </b>
+                        <span style="
+                color: rgb(252, 252, 252);
+                width: 40px;
+                margin-left: 10px;
+                margin-right: 30px;
+              " class="badge bg-secondary">{{ reservations?.length }}</span
+            >
+          </p>
+          <p>
+            <b>Aktivne: </b
+            ><span
+              *ngIf="activeReservations != 0"
+              style="
+                background-color: rgb(38, 95, 201) !important;
+                width: 40px;
+                margin-left: 10px;
+                margin-right: 30px;
+              "
+              class="badge bg-primary"
+              >{{ activeReservations }}</span
+            >
+            <span
+              *ngIf="activeReservations == 0"
+              style="
+                width: 40px;
+                margin-left: 10px;
+                color: #000;
+                margin-right: 30px;
+              "
+              class="badge bg-warning"
+              >{{ activeReservations }}</span
+            >
+          </p>
+          <p>
+            <b>Otkazane: </b>
+            <span
+              style="
+                width: 40px;
+                margin-left: 10px;
+                color: rgb(255, 255, 255);
+                margin-right: 30px;
+              "
+              class="badge bg-danger"
+              >{{ reservations?.length - activeReservations }}</span
+            >
+          </p>
+          <p>
+            <b>Checked: </b>
+            <span
+              style="
+                width: 40px;
+                margin-left: 10px;
+                color: rgb(255, 255, 255);
+                margin-right: 30px;
+              "
+              class="badge bg-success"
+              >{{ checked }}</span
+            >
+          </p>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col ">#</th>
+              <th scope="col ">Destinacija/ID</th>
+              <th scope="col ">Tip prijevoza</th>
+              <th scope="col ">Tip plaćanja</th>
+              <th scope="col ">Vrijeme rezervacije</th>
+              <th colspan="2 " style="text-align: center" scope="col">
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let reservation of reservations"
+              [class.canceled]="reservation.reservation_is_canceled == 'TRUE'"
+              [class.checked]="reservation.is_checked == 'TRUE'"
+            >
+              <th scope="row ">{{ reservation.res_id }}</th>
+              <td>{{ reservation.name }}/{{ reservation.dest_id }}</td>
+              <td>{{ reservation.transport_type }}</td>
+              <td>{{ reservation.payment_type }}</td>
+              <td>{{ reservation.date }}</td>
+              <td>
+                <div class="d-flex justify-content-end">
+                  <button
+                    (click)="getId(reservation.res_id)"
+                    [disabled]="
+                      reservation.reservation_is_canceled == 'TRUE' ||
+                      reservation.is_checked == 'TRUE'
+                    "
+                    class="btn btn-outline-danger"
+                  >
+                    <i class="fas fa-plane-slash"></i>&nbsp;Otkaži
+                  </button>
+
+                  <button
+                    style="margin-left: 15px"
+                    (click)="getCheckId(reservation.res_id)"
+                    [disabled]="
+                      reservation.reservation_is_canceled == 'TRUE' ||
+                      reservation.is_checked == 'TRUE'
+                    "
+                    class="btn btn-outline-success"
+                  >
+                    <i class="fas fa-check"></i>&nbsp;Check-in
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="reservations-card" *ngIf="!infoActive && !isWide">
+        <div
+          class="info-div2"
+          *ngFor="let reservation of reservations"
+          [class.canceled2]="reservation.reservation_is_canceled == 'TRUE'"
+          [class.checked]="reservation.is_checked == 'TRUE'"
+        >
+          <div class="name data">
+            <h6>Id rezervacije</h6>
+            <h6>{{ reservation.res_id }}</h6>
+          </div>
+          <div class="name data">
+            <h6>Destinacija/ID</h6>
+            <h6>{{ reservation.name }}/ {{ reservation.dest_id }}</h6>
+          </div>
+          <div class="name data">
+            <h6>Tip prijevoza</h6>
+            <h6>{{ reservation.transport_type }}</h6>
+          </div>
+          <div class="name data">
+            <h6>Tip plaćanja</h6>
+            <h6>{{ reservation.payment_type }}</h6>
+          </div>
+          <div class="name data">
+            <h6>Vrijeme rezervacije</h6>
+            <h6>{{ reservation.date }}</h6>
+          </div>
+          <div class="name data">
+            <h6>Adresa</h6>
+            <h6>{{ user.address }}</h6>
+          </div>
+          <div class="name data">
+            <h6>Broj telefona</h6>
+            <h6>{{ user.telefon }}</h6>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div>
+              <button
+                style="width: 120px; margin: 20px"
+                (click)="getId(reservation.res_id)"
+                [disabled]="
+                  reservation.reservation_is_canceled == 'TRUE' ||
+                  reservation.is_checked == 'TRUE'
+                "
+                class="btn btn-outline-danger"
+              >
+                <i class="fas fa-plane-slash"></i>&nbsp;Otkaži
+              </button>
+            </div>
+            <div>
+              <button
+                style="width: 120px; margin: 20px"
+                (click)="getCheckId(reservation.res_id)"
+                [disabled]="
+                  reservation.reservation_is_canceled == 'TRUE' ||
+                  reservation.is_checked == 'TRUE'
+                "
+                class="btn btn-outline-success"
+              >
+                <i class="fas fa-check"></i>&nbsp;Check
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rcol" [class.backdrop-shadow]="backDrop" *ngIf="editMode">
+      <div class="header">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h3>{{ user.first_name }}&nbsp;{{ user.last_name }}</h3>
+            <div style="margin-bottom: 20px">
+              <div>
+                <h6>{{ user.email }}</h6>
+                <h6>{{ user.telefon }}</h6>
+              </div>
+            </div>
+          </div>
+          <div class="buttons">
+            <button
+              (click)="editMode = false"
+              style="
+                width: 100px;
+                height: 38px;
+                margin: 20px 0 10px 20px;
+                background-color: rgb(38, 95, 201);
+              "
+              class="btn btn-primary"
+            >
+              Nazad
+            </button>
+            <button
+              (click)="saveChanges()"
+              [disabled]="
+                (form.controls.username.dirty && username?.errors?.minlength) ||
+                (form.controls.firstName.dirty &&
+                  firstName?.errors?.required) ||
+                (form.controls.lastName.dirty && lastName?.errors?.required) ||
+                (form.controls.address.dirty && firstName?.errors?.required)
+              "
+              style="width: 100px; margin: 20px 0 10px 20px; height: 38px"
+              class="btn btn-success"
+            >
+              Spremi
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-div">
+        <form [formGroup]="form">
+          <div class="name data-edit">
+            <h6>Ime</h6>
+            <div class="form-group fone mt-2 d-flex">
+              <input
+                (blur)="validationCheck()"
+                style="max-height: 37px"
+                formControlName="firstName"
+                type="text"
+                class="form-control"
+                id="validationDefaultEmail "
+                aria-describedby="inputGroupPrepend2 "
+              />
+            </div>
+          </div>
+          <div class="name data-edit">
+            <h6>Prezime</h6>
+            <div class="form-group fone mt-2">
+              <input
+                (blur)="validationCheck()"
+                style="max-height: 37px"
+                formControlName="lastName"
+                type="text"
+                class="form-control"
+                id="validationDefaultEmail "
+                aria-describedby="inputGroupPrepend2 "
+              />
+            </div>
+          </div>
+          <div class="name data-edit">
+            <h6>Username</h6>
+            <div class="form-group fone mt-2">
+              <input
+                (blur)="validationCheck()"
+                style="max-height: 37px"
+                formControlName="username"
+                type="text"
+                class="form-control"
+                id="validationDefaultEmail "
+                aria-describedby="inputGroupPrepend2 "
+              />
+            </div>
+          </div>
+
+          <div class="name data-edit">
+            <h6>Adresa</h6>
+            <div class="form-group fone mt-2">
+              <input
+                (blur)="validationCheck()"
+                style="max-height: 37px"
+                formControlName="address"
+                type="text"
+                class="form-control"
+                id="validationDefaultEmail "
+                aria-describedby="inputGroupPrepend2"
+              />
+            </div>
+          </div>
+          <div class="name data-edit">
+            <h6>Broj telefona</h6>
+            <div class="form-group fone mt-2">
+              <input
+                (blur)="validationCheck()"
+                style="max-height: 37px"
+                formControlName="telefon"
+                type="text"
+                class="form-control"
+                id="validationDefaultEmail "
+                aria-describedby="inputGroupPrepend2 "
+                name="telsefon"
+              />
+            </div>
+          </div>
+          <div class="name data-edit">
+            <h6>Password</h6>
+            <button
+              (click)="sendRequest()"
+              style="width: 130px; margin: 10px 0 10px 0"
+              class="btn btn-outline-primary"
+            >
+              Promjeni
+            </button>
+          </div>
+          <p class="declaration">
+            Osobne podatke prikupljamo u svrhu poboljšanja kvalitete sadržaja,
+            funkcionalnosti i ponude usluga na stranici kako bismo mogli
+            udovoljiti vašim interesima i potrebama, te Vas upoznati o
+            postojećim i novim sadržajima, funkcionalnostima i uslugama
+            Globetraveler-a koji bi Vama mogli biti od interesa.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

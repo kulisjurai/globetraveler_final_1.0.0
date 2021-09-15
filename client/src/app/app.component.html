@@ -1,0 +1,7 @@
+<div (scroll)="doSomething($event)">
+    <app-nav-bar style="position: relative; top: 0"></app-nav-bar>
+    <app-nav-bar [class.up]="goingUp && oldValue > 20" [class.down]="!goingUp"></app-nav-bar>
+    <div class="wrapper">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,100 @@
+<div class="containerr mb-5" style="font-family: 'Nunito'">
+    <div class="header1" style="width: 100vw; height: 30vw"></div>
+</div>
+<div class="header" style="margin-top: 40px">
+    <h1 style="font-family: 'Nunito'">
+        Otkrijte BiH na uzbudljiv i živopisan način
+    </h1>
+</div>
+<br />
+<hr style="margin: 0 11vw 0 11vw" />
+<div class="home-main-container" style="font-family: 'Nunito'">
+    <div style="font-family: 'Nunito'" class="card" *ngFor="let destination of splitedBihArray1" (click)="getParsingFunction(destination.dest_id)" (click)="openFullInformation()">
+        <div>
+            <img [src]="destination.image1" alt="Photo" />
+            <div class="price">
+                <h4 style="display: inline">od</h4>
+                <span><h4 style="display: inline">&nbsp;{{ destination.price }}</h4></span
+        >
+        <h4 style="display: inline">&nbsp;€</h4>
+      </div>
+    </div>
+    <div class="card-header">
+      <h3>{{ destination.name }}</h3>
+    </div>
+    <div class="card-info">
+      <p>{{ destination.description | descriptonPipe }}</p>
+    </div>
+    <h6 style="text-align: end; margin-right: 30px">Saznajte više...</h6>
+  </div>
+</div>
+<div class="stripe">
+  <div
+    style="
+      display: flex;
+      justify-content: space-evenly;
+      color: aliceblue;
+      font-family: 'Nunito';
+    "
+  >
+    <div
+      class="d-flex flex-column align-items-lg-center"
+      style="padding: 150px"
+    >
+      <i
+        style="color: rgb(81, 192, 81); font-size: 100px; margin-bottom: 20px"
+        class="fas fa-paper-plane"
+      ></i>
+      <h3>Avio karte</h3>
+    </div>
+    <div
+      class="d-flex flex-column align-items-lg-center"
+      style="padding: 150px"
+    >
+      <i
+        style="color: rgb(255, 158, 46); font-size: 100px; margin-bottom: 20px"
+        class="far fa-compass"
+      ></i>
+      <h3>Otkrijte BiH</h3>
+    </div>
+    <div
+      class="d-flex flex-column align-items-lg-center"
+      style="padding: 150px"
+    >
+      <i
+        style="color: rgb(46, 178, 255); font-size: 100px; margin-bottom: 20px"
+        class="fas fa-car-side"
+      ></i>
+      <h3>Rent-A-Car</h3>
+    </div>
+  </div>
+</div>
+<div class="home-main-container" style="font-family: 'Nunito'">
+  <div
+    style="font-family: 'Nunito'"
+    class="card"
+    *ngFor="let destination of splitedBihArray2"
+    (click)="getParsingFunction(destination.dest_id)"
+    (click)="openFullInformation()"
+  >
+    <div>
+      <img [src]="destination.image1" alt="Photo" />
+      <div class="price">
+        <h4 style="display: inline">od</h4>
+        <span
+          ><h4 style="display: inline">&nbsp;{{ destination.price }}</h4></span
+        >
+        <h4 style="display: inline">&nbsp;€</h4>
+      </div>
+    </div>
+    <div class="card-header">
+      <h3>{{ destination.name }}</h3>
+    </div>
+    <div class="card-info">
+      <p>{{ destination.description | descriptonPipe }}</p>
+    </div>
+    <h6 style="text-align: end; margin-right: 30px">Saznajte više...</h6>
+  </div>
+</div>
+
+<app-footer></app-footer>

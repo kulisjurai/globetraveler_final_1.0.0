@@ -1,0 +1,45 @@
+app-nav-bar {
+    position: fixed;
+    top: 0;
+    z-index: 700;
+}
+
+.up {
+    position: fixed;
+    top: 0;
+    transition: 1s;
+    z-index: 700;
+    animation: mymove10 0.8s ease-in-out;
+    @keyframes mymove10 {
+        0% {
+            top: -111px;
+        }
+        100% {
+            top: 0px;
+        }
+    }
+}
+
+.down {
+    position: fixed;
+    top: 0;
+    transition: 1s;
+    z-index: 700;
+    animation: mymove11 0.8s normal forwards;
+    @keyframes mymove11 {
+        0% {
+            top: 0px;
+        }
+        100% {
+            top: -111px;
+        }
+    }
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    //     display: flex;
+    //     justify-content: center;
+    // }
+}

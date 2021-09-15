@@ -1,0 +1,243 @@
+<div style="
+    width: 85.7vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 25px 20px 27px;
+  ">
+    <h4 style="font-family: 'Nunito'">Destinacije</h4>
+    <br />
+    <div style="width: 100%">
+        <h6>
+            Ukupno:
+            <span class="badge bg-primary" style="
+          margin-left: 10px;
+          text-align: center;
+          padding-left: 15px;
+          padding-right: 15px;
+        ">{{ numberOfDestinations }}</span
+      >
+    </h6>
+  </div>
+
+  <br />
+  <table
+    class="table table-striped m-25 dest-table"
+    style="font-family: 'Nunito'"
+    *ngIf="!formState"
+  >
+    <thead>
+      <tr>
+        <th scope="col ">#</th>
+        <th scope="col ">Naziv</th>
+        <th scope="col ">Država</th>
+        <th scope="col ">Cijena</th>
+        <th scope="col ">Broj dana</th>
+        <th scope="col ">Vrsta prijevoza</th>
+        <th scope="col ">Status</th>
+        <th colspan="2" style="padding-left: 80px" scope="col ">
+          &nbsp;&nbsp;Action
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let destination of allDestinations">
+        <th scope="row ">{{ destination.dest_id }}</th>
+        <td>{{ destination.name }}</td>
+        <td>{{ destination.country }}</td>
+        <td>{{ destination.price | currency: "EUR":true }}</td>
+        <td>{{ destination.broj_dana }}</td>
+        <td>{{ destination.transport_type }}</td>
+        <td>{{ destination.is_active }}</td>
+        <td>
+          <div style="width: 100%; display: flex; justify-content: flex-end">
+            <button
+              type="button "
+              class="btn btn-primary"
+              (click)="editDestination(destination)"
+            >
+              <i class="fas fa-pencil-alt"></i> &nbsp;Uredi
+            </button>
+
+            <button
+              type="button"
+              style="margin-left: 15px"
+              class="btn btn-danger"
+              (click)="deleteDestination(destination)"
+            >
+              <i class="fas fa-trash"></i>&nbsp;Obriši
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="containerr" *ngIf="formState">
+    <h4 style="font-family: 'Nunito'; color: rgb(255, 255, 255)">
+      Dodaj novu destinaciju
+    </h4>
+    <br />
+    <br />
+    <form class="row g-3">
+      <div class="col-md-6">
+        <label for="validationDefault01 " class="form-label">Naziv</label>
+        <input
+          [(ngModel)]="destination.name"
+          name="name "
+          type="text "
+          class="form-control"
+          id="validationDefault01 "
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="validationDefault01 " class="form-label">Država</label>
+        <input
+          [(ngModel)]="destination.country"
+          name="country "
+          type="text "
+          class="form-control"
+          id="validationDefault01 "
+          required
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefault01 " class="form-label">Cijena</label>
+        <input
+          [(ngModel)]="destination.price"
+          name="price "
+          type="text "
+          class="form-control"
+          id="validationDefault01 "
+          required
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefault01 " class="form-label">Broj dana</label>
+        <input
+          [(ngModel)]="destination.broj_dana"
+          name="broj_dana "
+          type="text "
+          class="form-control"
+          id="validationDefault01 "
+          required
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefault04 " class="form-label"
+          >Tip prijevoza</label
+        >
+        <div class="input-group" style="height: 38px">
+          <select
+            [(ngModel)]="destination.transport_id"
+            name="transportType"
+            class="form-select form-select-sm"
+            aria-label=".form-select-sm example "
+          >
+            <option *ngFor="let type of transportTypes" [value]="type.id">
+              {{ type.transport_type }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefault02 " class="form-label">Slika1</label>
+        <input
+          [(ngModel)]="destination.image1"
+          name="image1 "
+          type="text "
+          class="form-control"
+          id="validationDefault02 "
+          required
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefaultEmail " class="form-label">Slika 2</label>
+        <div class="input-group">
+          <input
+            [(ngModel)]="destination.image2"
+            name="image2 "
+            type="text "
+            class="form-control"
+            id="validationDefaultEmail "
+            aria-describedby="inputGroupPrepend2 "
+            required
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefaultEmail " class="form-label">Slika 3</label>
+
+        <input
+          [(ngModel)]="destination.image3"
+          name="image3 "
+          type="text "
+          class="form-control"
+          id="validationDefault03 "
+        />
+      </div>
+      <div class="form-floating">
+        <label for="floatingTextarea2">Opis</label>
+        <textarea
+          placeholder="Opis"
+          [(ngModel)]="destination.description"
+          class="form-control"
+          name="description "
+          id="floatingTextarea2 "
+          style="height: 200px; margin-top: 20px"
+        ></textarea>
+      </div>
+      <div class="form-floating">
+        <label>Program</label>
+        <textarea
+          placeholder="Program"
+          [(ngModel)]="destination.program"
+          class="form-control"
+          name="program "
+          id="floatingTextarea2 "
+          style="height: 200px; margin-top: 20px"
+        ></textarea>
+      </div>
+      <div class="col-md-4">
+        <div>
+          <button (click)="clear()" class="btn btn-primary">Očisti</button>
+        </div>
+        <div class="col-12" *ngIf="!editMode">
+          <button
+            [disabled]="
+              !destination.name ||
+              !destination.country ||
+              !destination.price ||
+              !destination.broj_dana ||
+              !destination.image1 ||
+              !destination.description ||
+              !destination.program
+            "
+            class="btn btn-success"
+            (click)="createDestination()"
+          >
+            <i class="fas fa-save"></i>&nbsp;Spremi
+          </button>
+        </div>
+        <div class="col-12" *ngIf="editMode">
+          <button
+            [disabled]="
+              !destination.name ||
+              !destination.country ||
+              !destination.price ||
+              !destination.broj_dana ||
+              !destination.image1 ||
+              !destination.description ||
+              !destination.program
+            "
+            class="btn btn-success"
+            (click)="updateDestination()"
+          >
+            <i class="fas fa-save"></i>&nbsp;Spremi promjene
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+.menu-list {
+    display: flex;
+    list-style: none;
+    height: 50px;
+    font-size: 20px;
+    font-weight: lighter;
+    color: #1dbbeb !important;
+    li {
+        margin: 25px 10px 20px 10px;
+        a {
+            font-weight: lighter !important;
+            text-decoration: none;
+            color: #29c5f5 !important;
+            a:hover,
+            a:focus,
+            &.active {
+                text-decoration: none;
+                border-bottom: 2px solid rgb(245, 163, 56);
+                padding-bottom: 10px;
+            }
+        }
+    }
+    li:hover {
+        cursor: pointer;
+        border-bottom: 2px solid #1dbbeb !important;
+        padding-bottom: 38px;
+    }
+}
+
+.none {
+    display: none;
+}

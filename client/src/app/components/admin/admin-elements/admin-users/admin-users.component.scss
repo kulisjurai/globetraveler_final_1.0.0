@@ -1,0 +1,38 @@
+.containerr {
+    padding: 100px;
+    width: 87vw;
+    height: 100vh;
+    margin: 0px;
+    background-color: rgba(36, 54, 88) !important;
+    margin-bottom: 500px;
+    position: absolute;
+    animation: mymove6 1s normal forwards;
+    @keyframes mymove6 {
+        0% {
+            top: -1000px;
+        }
+        100% {
+            top: 100px;
+        }
+    }
+    h4 {
+        color: rgb(60, 108, 153);
+    }
+    i {
+        color: rgb(35, 146, 211);
+    }
+    .btn {
+        width: 169px;
+    }
+    .btn-primary {
+        margin-right: 15px;
+        background-color: #37548b;
+    }
+    .col-12 {
+        display: flex;
+        margin-top: 4.3vh;
+    }
+    i {
+        color: white;
+    }
+}

@@ -1,0 +1,110 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    width: 100vw;
+    height: 110px;
+    color: #1dbbeb !important;
+    background-color: rgb(36, 54, 88) !important;
+    font-family: "Nunito", sans-serif !important;
+    a {
+        text-decoration: none;
+        font-family: "Nunito", sans-serif !important;
+        margin-right: 15px;
+    }
+    .logo-div {
+        display: flex;
+        flex-direction: row;
+        img {
+            height: 50px;
+            margin-left: 2%;
+        }
+        h3 {
+            margin-top: 15px;
+        }
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    i {
+        font-size: 20px;
+        margin: 10px 15px 0 0;
+        color: #1dbbeb !important;
+    }
+    i:hover {
+        color: rgb(245, 163, 56) !important;
+        cursor: pointer;
+    }
+    .none {
+        display: none;
+    }
+    .icons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    h3 {
+        color: #1dbbeb !important;
+        font-weight: lighter !important;
+    }
+    .col {
+        margin-right: 15px;
+    }
+}
+
+.back-drop {
+    padding-right: 40px;
+    position: absolute;
+    right: -10px;
+    top: 0;
+    width: 0;
+    background-color: #243658 !important;
+    color: white;
+    display: flex;
+    height: 100vh !important;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    overflow-x: hidden;
+    transition: 1s;
+    animation: mymove2 0.5s normal forwards;
+    @keyframes mymove2 {
+        0% {
+            width: 0vw;
+        }
+        100% {
+            width: 103vw;
+        }
+    }
+    ul {
+        list-style: none;
+        text-align: center;
+        li {
+            margin-top: 20px;
+            transition: 0.2s;
+            font-size: 18px;
+        }
+        li:hover {
+            color: rgb(245, 163, 56);
+            cursor: pointer;
+        }
+    }
+    i {
+        position: absolute;
+        top: 50px;
+        right: 42px;
+        font-size: 20px;
+    }
+    i:hover {
+        color: rgb(245, 163, 56);
+        cursor: pointer;
+    }
+}
+
+.none {
+    display: none;
+}
+
+.fa-user {
+    margin-left: 15px;
+}

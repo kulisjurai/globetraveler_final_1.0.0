@@ -1,0 +1,19 @@
+<ul class="menu-list" [class.none]="!isWide" style="color: #1dbbeb !important">
+    <li (click)="toggleSearch(false)" (click)="toggleSignUpForm(false)">
+        <a style="font-weight: lighter !important" routerLink="/home" routerLinkActive="active">Početna</a
+    >
+  </li>
+  <li (click)="toggleSearch(false)" (click)="toggleSignUpForm(false)">
+    <a routerLink="/about" routerLinkActive="active">O agenciji</a>
+    </li>
+    <li (click)="toggleSearch(false)" (click)="toggleSignUpForm(false)">
+        <a routerLink="/conditions" routerLinkActive="active">Opći uslovi putovanja</a
+    >
+  </li>
+  <li (click)="toggleSearch(false)" (click)="toggleSignUpForm(false)">
+    <a routerLink="/discover-bih" routerLinkActive="active">Otkrijte BiH</a>
+    </li>
+    <li style="color: #1dbbeb !important" (click)="toggleSearch(false)" (click)="toggleSignUpForm(false)">
+        <a routerLink="/contact" routerLinkActive="active">Kontakt</a>
+    </li>
+</ul>

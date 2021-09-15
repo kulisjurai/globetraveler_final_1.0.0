@@ -1,0 +1,57 @@
+<div class="background">
+    <div class="container d-flex justify-content-center">
+        <div class="row my-5">
+            <div class="col-md-6 text-left text-white lcol">
+                <div class="greeting">
+                    <h3>Dobrodošli u <span class="txt">globetraveler</span></h3>
+                </div>
+                <h6 class="mt-3">Polazna tačka Vašeg savršenog putovanja...</h6>
+                <div class="footer">
+                    <div class="socials d-flex flex-row justify-content-between text-white">
+                        <div class="d-flex flex-row">
+                            <i class="fab fa-linkedin-in"></i><i class="fab fa-facebook-f"></i
+              ><i class="fab fa-twitter"></i>
+                        </div>
+                        <span>Privacy Policy</span> <span>&copy; 2021 globetraveler</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 rcol">
+                <form class="sign-up" [formGroup]="form">
+                    <h3 class="heading mb-4">Prijavite se</h3>
+                    <div class="orm-group fone mt-2">
+                        <i class="fas fa-user"></i>
+                        <input autocomplete="off" formControlName="username" placeholder="Username" name="username " type="text" class="form-control" required id="exampleInputUsername1" aria-describedby="usernameHelp" />
+                    </div>
+                    <div class="orm-group fone mt-2">
+                        <i class="fas fa-lock"></i>
+
+                        <input autocomplete="off" (keyUp.enter)="loginUser()" placeholder="Password" type="password" formControlName="password" name="password" class="form-control" required id="exampleInputPassword1" />
+                    </div>
+                    <a style="
+              text-decoration: none;
+              font-size: 14px;
+              font-family: 'Nunito';
+              color: rgb(110, 110, 212);
+            " routerLink="/reset-password-request">Zaboravili ste password?</a
+          >
+        </form>
+
+        <button
+          type="button "
+          class="btn btn-success mt-5"
+          [disabled]=""
+          (click)="loginUser()"
+          type="submit "
+          [disabled]="password?.errors"
+        >
+          Login
+        </button>
+        <p class="exist mt-4">
+          Nemate račun? <span (click)="signUpRoute()">Registrirajte se</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

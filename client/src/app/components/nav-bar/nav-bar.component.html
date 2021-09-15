@@ -1,0 +1,116 @@
+<div class="navbar">
+    <a routerLink="/home">
+        <div class="logo-div" routerLink="/" style="margin-left: 20px">
+            <img [src]="
+          'https://www.pngkey.com/png/full/37-379897_logo-travel-logo-png-free.png'
+        " alt="photo" />
+            <h3>&nbsp;globetraveler</h3>
+        </div>
+    </a>
+
+    <app-menu class="color" [class.none]="!isWide"></app-menu>
+    <div class="icons">
+        <div *ngIf="!userService.isAuthenticated()" routerLink="/login">
+            <a><i
+          [class.none]="!isWide || userService.isAuthenticated()"
+          class="fas fa-user-plus"
+          (click)="toggleSignUpForm()"
+          (click)="toggleSearch(true)"
+        >
+        </i>
+      </a>
+        </div>
+
+        <div ngbDropdown *ngIf="userService.isAdministrator() && isWide">
+            <a>
+                <i ngbDropdownToggle class="fas fa-user-shield"><p
+            style="
+              font-family: 'Nunito', sans-serif;
+              display: inline;
+              font-weight: lighter;
+            "
+          >
+            {{ userService.loggedUser?.first_name }}
+          </p></i
+        ></a
+      >
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem routerLink="/profile">Profil</button>
+        <button ngbDropdownItem routerLink="/admin">Admin Dashboard</button>
+        <button ngbDropdownItem (click)="logout()">Logout</button>
+      </div>
+    </div>
+    <div
+      class="row"
+      *ngIf="
+        userService.isAuthenticated() && userService.loggedUser.uloga_id == '1'
+      "
+    >
+      <div class="col">
+        <div ngbDropdown>
+          <a [class.none]="!userService.isAuthenticated() || !isWide"
+            ><i ngbDropdownToggle class="fas fa-user">
+              <p
+                style="
+                  font-family: 'Nunito', sans-serif;
+                  display: inline;
+                  font-weight: lighter;
+                "
+              >
+                {{ userService.loggedUser.first_name }}
+              </p></i
+            ></a
+          >
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem routerLink="/profile">Profil</button>
+            <button ngbDropdownItem (click)="logout()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a routerLink="/search" (click)="toggleSearch()">
+      <i [class.none]="!isWide" class="fas fa-search"></i
+    ></a>
+    <i
+      (click)="toggle()"
+      [class.none]="isWide"
+      [class.none]="!isBurgerActive || isWide"
+      class="fas fa-bars"
+    ></i>
+        </div>
+    </div>
+    <div class="back-drop" [class.none]="isBurgerActive || isWide">
+        <i class="fas fa-times" (click)="toggle()"></i>
+        <ul class="menu-list">
+            <li (click)="toggle()" (click)="toggleSearch(false)" routerLink="/home">
+                Početna
+            </li>
+            <li (click)="toggle()" (click)="toggleSearch(false)" routerLink="/about">
+                O agenciji
+            </li>
+            <li (click)="toggle()" (click)="toggleSearch(false)" routerLink="/conditions">
+                Opći uslovi putovanja
+            </li>
+            <li (click)="toggle()" (click)="toggleSearch(false)" routerLink="/contact">
+                Kontakt
+            </li>
+            <li (click)="toggle()" (click)="toggleSearch(false)" routerLink="/discover-bih">
+                Otkrij BiH
+            </li>
+            <li (click)="toggle()" (click)="toggleSearch()" routerLink="/search">
+                Pretraži
+            </li>
+            <li *ngIf="!userService.isAuthenticated()" (click)="toggle()" routerLink="/login">
+                Prijavi se
+            </li>
+            <li *ngIf="userService.isAuthenticated()" (click)="toggle()" routerLink="/profile">
+                Profil
+            </li>
+            <li *ngIf="userService.isAuthenticated() && userService.isAdministrator()" (click)="toggle()" routerLink="/admin">
+                Admin Dashboard
+            </li>
+            <li *ngIf="userService.isAuthenticated()" (click)="toggle()" (click)="logout()" routerLink="/home">
+                Odjavi se
+            </li>
+        </ul>
+    </div>

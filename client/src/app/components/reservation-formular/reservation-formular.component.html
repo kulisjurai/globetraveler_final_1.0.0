@@ -1,0 +1,125 @@
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <h2>Obrazac za rezervacije</h2>
+        <div class="logo-div d-flex flex-wrap" routerLink="/" style="margin-left: 20px">
+            <img style="width: 70px" [src]="
+          'https://www.pngkey.com/png/full/37-379897_logo-travel-logo-png-free.png'
+        " alt="photo" />
+            <h6 style="margin-top: 15px; color: rgb(56, 180, 252)">
+                &nbsp;globetraveler
+            </h6>
+        </div>
+    </div>
+
+    <hr />
+    <br />
+    <div class="d-flex justify-content-between">
+        <h3>Vaša rezervacija</h3>
+        <div style="text-align: end">
+            <h4>{{ user.first_name }} {{ user.last_name }}</h4>
+            <h6>{{ user.email }}</h6>
+            <h6>{{ user.telefon }}</h6>
+        </div>
+    </div>
+
+    <hr />
+    <div class="info-div">
+        <div class="name data">
+            <h6>ID destinacije</h6>
+            <h6>{{ destInfo?.dest_id }}</h6>
+        </div>
+        <div class="name data">
+            <h6>Naziv</h6>
+            <h6>{{ destInfo?.name }}</h6>
+        </div>
+        <div class="name data">
+            <h6>Država</h6>
+            <h6>{{ destInfo?.country }}</h6>
+        </div>
+        <div class="name data">
+            <h6>Cijena</h6>
+            <h6>{{ destInfo?.price | currency: "EUR" }}</h6>
+        </div>
+        <div class="name data">
+            <h6>Broj dana</h6>
+            <h6>{{ destInfo?.broj_dana }}</h6>
+        </div>
+        <div class="name data">
+            <h6>Način plaćanja</h6>
+            <select style="width: 150px" class="form-select form-select-sm" aria-label=".form-select-sm example " name="" id="" (change)="sendPaymentType($event)">
+        <option value="1">Kreditna kartica</option>
+        <option value="2">Gotovina</option>
+      </select>
+        </div>
+        <div class="name data">
+            <h6>Tip prijevoza</h6>
+            <h6 *ngIf="destInfo?.transport_id == '2'">Autobusna linija</h6>
+            <h6 *ngIf="destInfo?.transport_id == '1'">Avionska linija</h6>
+        </div>
+        <div class="name data">
+            <h6>Datum polaska</h6>
+            <h6>29.010.2021</h6>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    <h4>Opći uslovi putovanja</h4>
+
+    <p>
+        Na osnovu člana 18., stav 10 Zakona o turističkoj djelatnosti FBiH („Službene Novine FBiH “ br. 32/2009) direktor Globetraveler-a iz Sarajeva, Zmaja od Bosne 21, dana 11.03.2013.god. utvrđuje:
+    </p>
+
+    <h5>OPĆE USLOVE PUTOVANJA</h5>
+
+    <p>
+        Odredbe ovih Općih uslova čine sastavni dio ugovora o putovanju između putnika i Globetraveler d.o.o (u daljem tekstu “Organizator putovanja) i obavezuju ugovorne strane, osim odredbi koje su drugačije definisane, pisanim ugovorom ili programom putovanja.
+    </p>
+
+    <h6>NAPOMENA:</h6>
+    <p>
+        Poštovani putnici, Ugovor o putovanju I Opća pravila putovanja su nevažeći dok traje vanredna situacija izazvana pandemijom COVID 19.
+    </p>
+    <br />
+
+    <p>
+        <b>Detaljniji pravilnik o putovanju na linku:
+      <a href="http://localhost:4200/conditions" alt
+        >Opći uslovi putovanja</a
+      ></b
+    >
+  </p>
+  <br />
+  <div class="d-flex">
+    <input
+      (click)="checkCheckBoxvalue($event)"
+      type="checkbox"
+      class="form-check-input ml-0"
+      id="exampleCheck1 "
+      style="width: 18px"
+    />
+    <label
+      style="margin-left: 10px"
+      class="form-check-label ml-3"
+      for="exampleCheck1 "
+      >Slažem se sa globetraveler <u>uvjetima</u> i
+      <u> policom privatnosti</u></label
+    >
+  </div>
+
+  <br />
+  <div
+    class="d-flex upper-button justify-content-lg-start"
+    style="flex-direction: row-reverse"
+  >
+    <button
+      [disabled]="!privacyPolicyCheck"
+      class="btn btn-success upper"
+      (click)="reserveDestination()"
+    >
+      <i class="fas fa-clipboard-list"></i>
+      Potvrdite rezervaciju
+    </button>
+  </div>
+</div>
+<app-footer> </app-footer>

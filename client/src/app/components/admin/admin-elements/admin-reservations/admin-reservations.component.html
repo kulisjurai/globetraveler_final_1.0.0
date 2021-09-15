@@ -1,0 +1,138 @@
+<div class="wrapper">
+    <h4 style="font-family: 'Nunito'; margin-top: 10px">Rezervacije</h4>
+
+    <br />
+    <div class="d-flex justify-content-between" style="
+      width: 100%;
+      padding-top: 10px;
+      border-bottom: 1px solid rgb(224, 224, 222);
+      border-top: 1px solid rgb(224, 224, 222);
+    ">
+        <p>
+            <b>Ukupno: </b>
+            <span style="
+          color: rgb(252, 252, 252);
+          width: 40px;
+          margin-left: 10px;
+          margin-right: 30px;
+        " class="badge bg-secondary">{{ allReservations.length }}</span
+      >
+    </p>
+    <p>
+      <b>Aktivne: </b
+      ><span
+        style="
+          background-color: rgb(38, 95, 201) !important;
+          width: 40px;
+          margin-left: 10px;
+          margin-right: 30px;
+        "
+        class="badge bg-primary"
+        >{{ allReservations.length - canceledReservations }}</span
+      >
+    </p>
+    <p>
+      <b>Otkazane: </b>
+      <span
+        style="
+          width: 40px;
+          margin-left: 10px;
+          color: rgb(255, 255, 255);
+          margin-right: 30px;
+        "
+        class="badge bg-danger"
+        >{{ canceledReservations }}</span
+      >
+    </p>
+    <p>
+      <b>Checked: </b>
+      <span
+        style="
+          width: 40px;
+          margin-left: 10px;
+          color: rgb(255, 255, 255);
+          margin-right: 30px;
+        "
+        class="badge bg-success"
+        >{{ checkedInReservations }}</span
+      >
+    </p>
+  </div>
+  <br />
+  <table
+    style="font-family: 'Nunito'"
+    class="table table-striped m-25 dest-table res-table"
+  >
+    <thead (click)="check()">
+      <tr>
+        <th scope="col">#</th>
+        <th colspan="4" scope="col">Kijent</th>
+        <th class="wider" colspan="2" scope="col">Destinacija</th>
+        <th>Šifra Destinacije</th>
+        <th colspan="2" scope="col">Tip aranžmana</th>
+        <th colspan="2" scope="col">Vrijeme rezervacije</th>
+        <th class="wider" colspan="3" scope="col">Vrsta plaćanja</th>
+        <th class="wider" colspan="3" scope="col">Tip prijevoza</th>
+        <th colspan="2" scope="col">Rezervacija otkazana</th>
+        <th colspan="2" scope="col">Checked</th>
+
+        <th colspan="2" style="padding-left: 30px" scope="col ">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let reservation of allReservations"
+        [class.checked]="
+          reservation.is_checked == 'TRUE' &&
+          reservation.reservation_is_canceled == 'FALSE'
+        "
+        [class.back-canceled]="reservation.reservation_is_canceled == 'TRUE'"
+      >
+        <th scope="row ">{{ reservation.res_id }}</th>
+        <td colspan="4">
+          {{ reservation.first_name }}&nbsp;{{ reservation.last_name }}
+        </td>
+        <td class="wider" colspan="2">{{ reservation.name }}</td>
+        <td>{{ reservation.destination_id }}</td>
+        <td colspan="2">{{ reservation.type }}</td>
+        <td class="wider">{{ reservation.date }}</td>
+        <td class="wider" colspan="3">{{ reservation.payment_type }}</td>
+        <td class="wider" colspan="3">{{ reservation.transport_type }}</td>
+        <td colspan="2">{{ reservation.reservation_is_canceled }}</td>
+
+        <td colspan="2">
+          <strong>{{ reservation.is_checked }}</strong>
+        </td>
+        <td colspan="2">&nbsp;&nbsp;</td>
+        <td>
+          <button
+            *ngIf="reservation.reservation_is_canceled == 'TRUE'"
+            (click)="restoreReservation(reservation.res_id)"
+            type="button"
+            class="btn btn-success"
+          >
+            <i class="fas fa-trash-restore"></i>&nbsp;Restore
+          </button>
+          <button
+            *ngIf="reservation.reservation_is_canceled == 'FALSE'"
+            (click)="cancelReservation(reservation.res_id)"
+            type="button"
+            class="btn btn-warning"
+          >
+            <i class="fas fa-plane-slash"></i>&nbsp;Otkaži
+          </button>
+        </td>
+        <td>
+          <button
+            [disabled]="reservation.is_checked == 'TRUE'"
+            (click)="deleteReservation(reservation.res_id)"
+            type="button"
+            class="btn btn-danger"
+          >
+            <i class="fas fa-trash"></i>&nbsp;Obriši
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

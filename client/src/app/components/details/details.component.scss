@@ -1,0 +1,73 @@
+.container {
+    margin: 15px auto;
+    margin-bottom: 80px !important;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    border-radius: 7px;
+    background: #f7f5f5;
+    box-shadow: 20px 20px 40px #dfdddd, -20px -20px 51px #ebebeb;
+    padding-top: 70px !important;
+    padding-bottom: 50px;
+    .slider {
+        margin-top: 25px !important;
+        height: 40vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        .main-img {
+            // // position: absolute;
+            // // top: 190px;
+            // // left: 250px;
+            height: 100% !important;
+            // margin: auto;
+            margin-bottom: 20px;
+        }
+        .small {
+            height: 5vw !important;
+            margin: 15px;
+        }
+        // .arrow {
+        //     position: absolute;
+        //     top: 350px;
+        //     left: 20vw;
+        //     z-index: 20;
+        //     color: white;
+        // }
+    }
+}
+
+.details-card {
+    margin: 25px 8vw 0 6.6vw;
+}
+
+.mini-gallery {
+    padding: 15px !important;
+    display: flex;
+    flex-direction: row;
+}
+
+.btn {
+    width: 250px;
+    height: 50px;
+    align-self: flex-end;
+}
+
+.icons {
+    margin: 1vw;
+    font-size: 2.5vw;
+    color: rgb(74, 74, 146);
+    transition: 0.15s;
+}
+
+.icons:hover {
+    cursor: pointer;
+    color: rgb(255, 83, 40);
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+}

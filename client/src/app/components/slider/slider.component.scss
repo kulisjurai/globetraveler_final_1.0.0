@@ -1,0 +1,30 @@
+.containerr {
+    position: absolute !important;
+    top: 110px;
+    width: 100vw !important;
+    margin: 0 auto !important;
+    padding: 0;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    z-index: 0;
+}
+
+img {
+    height: 65vh;
+    width: 100vw;
+    object-fit: cover;
+    object-position: 50% 50%;
+    margin: 0 0 0 0 !important;
+}
+
+.carousel-caption {
+    background-color: rgba($color: #17172b77, $alpha: 0.6);
+    height: 170px;
+    padding: 15px 15px 50px 15px;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 7px;
+}
+
+.carousel-caption:hover {
+    cursor: pointer;
+}

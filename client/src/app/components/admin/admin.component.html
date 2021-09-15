@@ -1,0 +1,35 @@
+<div class="admin-page">
+    <div class="dashboard-menu">
+        <h6><i class="fas fa-sliders-h"></i>&nbsp;Admin Dashboard</h6>
+        <br />
+        <div ngbDropdown>
+            <button ngbDropdownToggle (click)="activePanel = 'destinations'" (click)="formOff()" type="button " class="btn btn-primary" data-bs-toggle="button ">
+        <i class="fas fa-map-marker-alt"></i> &nbsp;Destinacije
+      </button>
+            <div *ngIf="!formState" ngbDropdownMenu aria-labelledby="dropdownBasic1 ">
+                <button ngbDropdownItem (click)="toggleForm()">
+          Dodaj novu destinaciju
+        </button>
+            </div>
+        </div>
+        <div ngbDropdown>
+            <button (click)="activePanel = 'users'" type="button " class="btn btn-primary" data-bs-toggle="button ">
+        <i class="fas fa-users"></i>&nbsp; Korisnici
+      </button>
+        </div>
+
+        <div ngbDropdown>
+            <button (click)="activePanel = 'reservations'" (click)="display()" type="button " class="btn btn-primary" data-bs-toggle="button ">
+        <i class="fas fa-clipboard-list"></i>&nbsp; Rezervacije
+      </button>
+        </div>
+
+        <button type="button " class="btn btn-primary" data-bs-toggle="button ">
+      <i class="fas fa-cogs"></i> Podešavanja
+    </button>
+    </div>
+
+    <app-admin-destinations *ngIf="activePanel == 'destinations'"></app-admin-destinations>
+    <app-admin-users *ngIf="activePanel == 'users'"></app-admin-users>
+    <app-admin-reservations *ngIf="activePanel == 'reservations'"></app-admin-reservations>
+</div>

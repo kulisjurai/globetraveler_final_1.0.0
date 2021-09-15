@@ -1,0 +1,60 @@
+.con {
+    height: 100vh;
+}
+
+.m-10 {
+    margin: 20px !important;
+    width: 60vw;
+}
+
+.dest-table {
+    margin: 30px;
+}
+
+.container {
+    margin: 0;
+}
+
+h4 {
+    margin: 30px 0 0 30px;
+}
+
+.containerr {
+    padding: 10px 100px 100px 100px;
+    width: 87vw;
+    margin: 0px;
+    min-height: 100vh;
+    background-color: rgba(36, 54, 88) !important;
+    color: white;
+    margin-bottom: 500px;
+    position: absolute;
+    animation: mymove6 1s normal forwards;
+    @keyframes mymove6 {
+        0% {
+            top: -1000px;
+        }
+        100% {
+            top: 100px;
+        }
+    }
+    h4 {
+        color: rgb(60, 108, 153);
+    }
+    i {
+        color: rgb(35, 146, 211);
+    }
+    .btn {
+        width: 169px;
+    }
+    .btn-primary {
+        margin-right: 15px;
+        background-color: #37548b;
+    }
+    .col-12 {
+        display: flex;
+        margin-top: 4.3vh;
+    }
+    i {
+        color: white;
+    }
+}

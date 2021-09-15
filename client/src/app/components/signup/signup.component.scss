@@ -1,0 +1,238 @@
+.background {
+    //background-image: url("https://cdn5.vectorstock.com/i/1000x1000/21/34/europe-travel-background-with-place-for-text-vector-7562134.jpg");
+    background-image: url("https://wallpapercave.com/wp/wp3933596.jpg");
+    background-size: auto;
+}
+
+.containerr {
+    padding: 3vh 15vw 0 15vw;
+    width: 100%;
+    margin: 0px;
+    background-color: rgb(227, 238, 248);
+    margin-bottom: 500px;
+    position: absolute;
+    height: 500px;
+    animation: mymove6 1s normal forwards;
+    @keyframes mymove6 {
+        0% {
+            top: -500px;
+        }
+        100% {
+            top: 100px;
+        }
+    }
+    h4 {
+        color: rgb(60, 108, 153);
+    }
+    i {
+        color: rgb(35, 146, 211);
+    }
+    .btn {
+        width: 169px;
+    }
+    .btn-primary {
+        margin-right: 15px;
+        background-color: #37548b;
+    }
+    .col-12 {
+        display: flex;
+        margin-top: 4.3vh;
+    }
+}
+
+.error {
+    border: 1px red solid;
+}
+
+body {
+    background: #e1ebec;
+    font-family: "Poppins", sans-serif;
+}
+
+.alert-danger {
+    font-size: 10px !important;
+}
+
+.row {
+    width: 1100px;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+.lcol {
+    background: linear-gradient( to bottom, rgb(36, 54, 88) 50%, rgb(35, 85, 177) 100%, rgba(125, 185, 232, 1) 100%);
+    height: 700px;
+    padding: 0 35px;
+}
+
+.rcol {
+    background: #fff;
+    padding: 40px 80px 80px 80px;
+    height: 700px;
+}
+
+.heading {
+    font-weight: lighter;
+}
+
+span.txt {
+    color: rgb(253, 158, 34);
+}
+
+.greeting {
+    padding-top: 200px;
+    padding-right: 90px;
+    font-weight: lighter !important;
+}
+
+h6.mt-3 {
+    padding-right: 115px;
+}
+
+.footer {
+    margin-top: 370px;
+}
+
+.footer span {
+    color: #b0a1e2;
+    font-size: 9px;
+    cursor: pointer;
+}
+
+.fab {
+    color: #ededf5;
+    font-size: 10px;
+    margin-right: 20px;
+    padding-top: 3px;
+    cursor: pointer;
+}
+
+h3.heading {
+    font-weight: normal;
+    font-size: "Nunito";
+}
+
+.form-control {
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.form-control::placeholder {
+    font-size: 16px;
+    color: #c2c2cc;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.fone input {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.fone {
+    position: relative;
+}
+
+.fone .fas {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    padding: 8px 0px;
+    color: #c2c2cc;
+    font-size: 16px;
+}
+
+.fone .image {
+    position: absolute;
+    left: 275px;
+    top: 0px;
+    cursor: pointer;
+}
+
+.form-check-input {
+    margin-top: 11px;
+}
+
+.form-check-input:hover {
+    cursor: pointer;
+}
+
+.form-check-label {
+    padding: 8px 0 0 10px;
+    font-size: 11px;
+    color: #94949b;
+}
+
+.btn-success {
+    margin-top: 0;
+    padding: 7px 40px;
+    background: #2da4f3;
+    border: none;
+    font-size: 16px;
+    position: relative;
+    bottom: 25px;
+}
+
+.btn-success:hover {
+    background: #11c892;
+}
+
+.btn-success:focus {
+    box-shadow: none;
+}
+
+u {
+    cursor: pointer;
+}
+
+p.exist {
+    font-size: 16px;
+    color: #828288;
+}
+
+.exist span:hover {
+    color: rgb(42, 40, 165);
+}
+
+.exist {
+    position: relative;
+    bottom: 30px;
+}
+
+p.exist span {
+    cursor: pointer;
+    color: #767481;
+}
+
+@media screen and (max-width: 993px) {
+    .fone .image {
+        position: absolute;
+        left: 180px;
+    }
+    .footer {
+        margin-top: 170px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .row {
+        width: 450px;
+    }
+    .rcol {
+        padding: 60px 180px 60px 60px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .rcol {
+        padding: 60px 50px 60px 50px;
+    }
+    .footer {
+        margin-top: 140px;
+    }
+}
