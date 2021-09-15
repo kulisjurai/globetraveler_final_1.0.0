@@ -7,11 +7,11 @@ Final exam application for IT Academy program Javascript Frontend development 20
 
 ## Data base
 
-If the project was downloaded using the git clone command the exportded dump **globetraveler.sql** file should be at the same location as the **api** and **client** folders are.
-Copy the __globetraveler.sql__ file into your __bin__ directory (subdirectory of MySql Server) and in the same directory (__bin__  directory) type following command:
+If the project was downloaded using the git clone command the exportded dump **globetraveler_dump.sql** file should be at the same location as the **api** and **client** folders are.
+Copy the __globetraveler_dump.sql__ file into your __bin__ directory (subdirectory of MySql Server) and in the same directory (__bin_) type following command:
 
 ```mysql
-mysql -u "type-your-username" -p "type-your-database_name" < globetraveler.sql
+mysql -u "type-your-username" -p "type-your-newly-created-database_name" < globetraveler_dump.sql
 ```
 
 
